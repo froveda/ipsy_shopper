@@ -1,7 +1,7 @@
 # Ipsy Shopper Coding Challenge
 
 
-Create a (Ruby On Rails)[http://rubyonrails.org/] api-only application using:
+Create a [Ruby On Rails](http://rubyonrails.org) api-only application using:
 
 ```
 rails new ipsy_shopper --api -O
