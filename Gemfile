@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use Puma as the app server
@@ -27,6 +26,11 @@ gem 'puma', '~> 3.7'
 gem 'bson'
 gem 'mongoid'
 
+# Carrierwave
+gem 'carrierwave'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'mini_magick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,6 +44,17 @@ group :development do
 
   gem "rspec-rails"
   gem "factory_girl_rails"
+end
+
+group :test do
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
+  gem 'mongoid-rspec'
+end
+
+group :development, :test do
+  gem "faker"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

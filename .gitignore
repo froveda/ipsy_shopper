@@ -18,3 +18,6 @@
 # Ignore RubyMine Files
 /.idea/*
 .idea/*
+
+# Ignore uploads folder
+public/uploads
