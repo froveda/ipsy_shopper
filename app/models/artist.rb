@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Artist Model
 class Artist
   include Mongoid::Document
   include Mongoid::Timestamps

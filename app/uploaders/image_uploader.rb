@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'carrierwave/processing/mini_magick'
 
+# Carrierwave main Image Uploader to be use for file fields
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 

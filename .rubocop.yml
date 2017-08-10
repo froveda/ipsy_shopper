@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: false
+
+Layout/SpaceInsideBrackets:
+  Enabled: false

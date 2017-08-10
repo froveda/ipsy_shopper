@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Playlist Model
 class Playlist
   include Mongoid::Document
   include Mongoid::Timestamps

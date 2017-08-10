@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
+# Song Model
 class Song
   include Mongoid::Document
   include Mongoid::Timestamps
   
   field :name, type: String
-  field :duration, type: Integer #duration in seconds
+  field :duration, type: Integer # duration in seconds
   field :genre, type: String
   
   belongs_to :album
