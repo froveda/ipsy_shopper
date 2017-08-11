@@ -12,7 +12,7 @@ require 'factory_girl_rails'
 require 'database_cleaner'
 require 'mongoid-rspec'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 DatabaseCleaner[:mongoid].strategy = :truncation
 
 RSpec.configure do |config|
