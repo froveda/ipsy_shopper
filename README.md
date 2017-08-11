@@ -19,12 +19,12 @@ Considerations:
 This class represents a song in the application. It has the following fields:
 
 - name (String)
-- duration (Integer): Duration of the song. It is expressed in seconds
+- duration (Integer): Duration of the song. It is expressed in seconds. Default value: `0`
 - genre (String)
 
 Also, a Song can be `featured`:
 
-- featured (Boolean)
+- featured (Boolean): Default value `false`
 
 and if it is `featured`, the following fields can be retrieven:
 
@@ -33,7 +33,7 @@ and if it is `featured`, the following fields can be retrieven:
 
 Since a song can change its `featured` value after being created, I prefer to add it as a boolean field in the model instead of creating a new model `Song::Featured`. This way, the boolean field can be changed easily, avoiding to change the instace class type.
 
-Relationships:
+Associations:
 - Belongs to Album
 - Belongs to Playlist
 
@@ -42,7 +42,7 @@ This class represents an Album in the application. It has the following fields:
 - name (String)
 - art (Image)
 
-Relationships:
+Associations:
 - Has many Songs
 - Belongs to Artist
 
@@ -51,12 +51,12 @@ This class represents an Artist in the application. It has the following fields:
 - name (String)
 - bio (String)
 
-Relationships:
+Associations:
 - Has many albums
 
 ### Playlist
 This class represents a Playlist in the application. It has the following fields:
 - name (String)
 
-Relationships:
+Associations:
 - Has many songs

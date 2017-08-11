@@ -6,7 +6,7 @@ class Song
   include Mongoid::Timestamps
   
   field :name, type: String
-  field :duration, type: Integer # duration in seconds
+  field :duration, type: Integer, default: 0 # duration in seconds
   field :genre, type: String
   field :featured, type: Boolean, default: false
   field :description, type: String
