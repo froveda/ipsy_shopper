@@ -13,3 +13,50 @@ Considerations:
 - Use [MongoID gem](https://github.com/mongodb/mongoid) as an ODM for MongoDB
 - Use [RSpec](http://rspec.info/) with [FactoryGirl gem](https://github.com/thoughtbot/factory_girl) as the test framework
 - Use [CarrierWave gem](https://github.com/carrierwaveuploader/carrierwave) for attachments
+
+## Models
+### Song
+This class represents a song in the application. It has the following fields:
+
+- name (String)
+- duration (Integer): Duration of the song. It is expressed in seconds
+- genre (String)
+
+Also, a Song can be `featured`:
+
+- featured (Boolean)
+
+and if it is `featured`, the following fields can be retrieven:
+
+- here (Image)
+- description (String)
+
+Since a song can change its `featured` value after being created, I prefer to add it as a boolean field in the model instead of creating a new model `Song::Featured`. This way, the boolean field can be changed easily, avoiding to change the instace class type.
+
+Relationships:
+- Belongs to Album
+- Belongs to Playlist
+
+### Album
+This class represents an Album in the application. It has the following fields:
+- name (String)
+- art (Image)
+
+Relationships:
+- Has many Songs
+- Belongs to Artist
+
+### Artist
+This class represents an Artist in the application. It has the following fields:
+- name (String)
+- bio (String)
+
+Relationships:
+- Has many albums
+
+### Playlist
+This class represents a Playlist in the application. It has the following fields:
+- name (String)
+
+Relationships:
+- Has many songs

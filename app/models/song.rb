@@ -8,6 +8,9 @@ class Song
   field :name, type: String
   field :duration, type: Integer # duration in seconds
   field :genre, type: String
+  field :featured, type: Boolean, default: false
+  field :description, type: String
+  mount_uploader :here, ImageUploader
   
   belongs_to :album
   belongs_to :playlist
