@@ -25,6 +25,6 @@ describe Song do
   
   describe 'associations' do
     it { is_expected.to belong_to(:album) }
-    it { is_expected.to belong_to(:playlist) }
+    it { is_expected.to have_and_belong_to_many(:playlists) }
   end
 end

@@ -13,7 +13,7 @@ class Song
   mount_uploader :here, ImageUploader
   
   belongs_to :album
-  belongs_to :playlist
+  has_and_belongs_to_many :playlists
 
   validates_presence_of :name, :duration, :genre
   validates_numericality_of :duration, only_integer: true, greater_than_or_equal_to: 0

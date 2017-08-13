@@ -7,6 +7,6 @@ FactoryGirl.define do
     genre           Faker::Lorem.word
     
     album
-    playlist
+    after(:create) {|song| song.playlists = [ create(:playlist) ] }
   end
 end
