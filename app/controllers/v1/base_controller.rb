@@ -1,34 +1,39 @@
-class V1::BaseController < ApplicationController
-  before_action :set_collection, only: [:index]
-  before_action :set_resource, only: [:show, :update, :destroy]
-  
-  def index
-    render json: @collection, adapter: :json
-  end
+# frozen_string_literal: true
 
-  def show
-    render json: @resource
-  end
+module V1
+  # API Base Controller with the common RESTFUL actions
+  class BaseController < ApplicationController
+    before_action :set_collection, only: %i[index]
+    before_action :set_resource, only: %i[show update destroy]
   
-  def create
-    @resource = resource_class.new(resource_params)
-  
-    if @resource.save
-      render json: @resource, status: :created
-    else
-      render json: @resource.errors, status: :unprocessable_entity
+    def index
+      render json: @collection, adapter: :json
     end
-  end
-
-  def update
-    if @resource.update(resource_params)
+  
+    def show
       render json: @resource
-    else
-      render json: @resource.errors, status: :unprocessable_entity
     end
-  end
   
-  def destroy
-    @resource.destroy
+    def create
+      @resource = resource_class.new(resource_params)
+    
+      if @resource.save
+        render json: @resource, status: :created
+      else
+        render json: @resource.errors, status: :unprocessable_entity
+      end
+    end
+  
+    def update
+      if @resource.update(resource_params)
+        render json: @resource
+      else
+        render json: @resource.errors, status: :unprocessable_entity
+      end
+    end
+  
+    def destroy
+      @resource.destroy
+    end
   end
 end
