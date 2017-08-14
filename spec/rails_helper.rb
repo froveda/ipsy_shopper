@@ -36,3 +36,19 @@ RSpec.configure do |config|
     DatabaseCleaner[:mongoid].clean
   end
 end
+
+RspecApiDocumentation.configure do |config|
+  config.app = Rails.application
+  config.keep_source_order = true
+
+  config.format = :html
+  config.docs_dir = Rails.root.join('public', 'doc', 'api', 'all')
+  
+    API_VERSIONS.each do |version|
+    config.define_group :v1 do |config|
+      config.filter = version
+      config.docs_dir = Rails.root.join('public', 'doc', 'api', version.to_s)
+      config.api_name = "API #{version.upcase}"
+    end
+  end
+end

@@ -7,7 +7,7 @@ class Playlist
   
   field :name, type: String
 
-  has_many :songs
+  has_and_belongs_to_many :songs
 
   validates_presence_of :name
 end

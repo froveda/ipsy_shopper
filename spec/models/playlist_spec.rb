@@ -16,6 +16,6 @@ describe Playlist do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many(:songs) }
+    it { is_expected.to have_and_belong_to_many(:songs) }
   end
 end

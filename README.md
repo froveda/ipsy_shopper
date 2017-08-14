@@ -13,6 +13,7 @@ Considerations:
 - Use [MongoID gem](https://github.com/mongodb/mongoid) as an ODM for MongoDB
 - Use [RSpec](http://rspec.info/) with [FactoryGirl gem](https://github.com/thoughtbot/factory_girl) as the test framework
 - Use [CarrierWave gem](https://github.com/carrierwaveuploader/carrierwave) for attachments
+- Use [rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation) gem to generate API documentation from the test suite
 
 ## Models
 ### Song
@@ -35,7 +36,7 @@ Since a song can change its `featured` value after being created, I prefer to ad
 
 Associations:
 - Belongs to Album
-- Belongs to Playlist
+- Has and belongs to many Playlists
 
 ### Album
 This class represents an Album in the application. It has the following fields:
@@ -52,11 +53,17 @@ This class represents an Artist in the application. It has the following fields:
 - bio (String)
 
 Associations:
-- Has many albums
+- Has many Albums
 
 ### Playlist
 This class represents a Playlist in the application. It has the following fields:
 - name (String)
 
 Associations:
-- Has many songs
+- Has and belongs to many Songs
+
+## API
+
+To access the api documentation, go to `http://<VERSION>/doc/api/v<VERSION>/index.html`. Example:
+
+[http://localhost:3000/doc/api/v1/index.html](http://localhost:3000/doc/api/v1/index.html)

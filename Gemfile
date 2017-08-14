@@ -36,6 +36,12 @@ gem 'mini_magick'
 # Rubocop
 gem 'rubocop', require: false
 
+# RSpec API Doc Generator
+gem 'rspec_api_documentation'
+
+# Use serializers for API Json Response
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
