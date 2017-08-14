@@ -9,3 +9,20 @@ Layout/TrailingWhitespace:
 
 Layout/SpaceInsideBrackets:
   Enabled: false
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+Lint/BlockAlignment:
+  Exclude:
+    - 'spec/**/*'
+    

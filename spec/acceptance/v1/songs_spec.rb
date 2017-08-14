@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'rspec_api_documentation'
 require 'rspec_api_documentation/dsl'
@@ -81,7 +83,7 @@ resource 'Songs' do
 
     let(:raw_post) { song_params.to_json }
   
-    example 'Creating a song', document: :v1  do
+    example 'Creating a song', document: :v1 do
       explanation 'Creates a son'
       
       do_request
@@ -125,7 +127,7 @@ resource 'Songs' do
   
     let(:raw_post) { song_params.to_json }
   
-    example 'Updating a song', document: :v1  do
+    example 'Updating a song', document: :v1 do
       explanation 'Updates a song with ID <strong>:id</sttong>.'
       
       do_request
@@ -146,7 +148,7 @@ resource 'Songs' do
     let(:song) { create(:song) }
     let(:id)            { song.id.to_s }
 
-    example 'Deleting a song', document: :v1  do
+    example 'Deleting a song', document: :v1 do
       explanation 'Deletes a song'
       
       do_request
