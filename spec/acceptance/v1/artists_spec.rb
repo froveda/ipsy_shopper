@@ -18,7 +18,7 @@ resource 'Artists' do
     example 'Listing artists', document: :v1 do
       explanation 'Retrieve all of the artists'
 
-      artist_serialized = JSON.parse(V1::ArtistSerializer.new(@artist).to_json)
+      artist_serialized = JSON.parse(ArtistSerializer.new(@artist).to_json)
       
       do_request
 
@@ -34,7 +34,7 @@ resource 'Artists' do
 
     example 'Retrieve an artist', document: :v1 do
       explanation 'Retrieve an artist'
-      artist_serialized = JSON.parse(V1::ArtistSerializer.new(artist).to_json)
+      artist_serialized = JSON.parse(ArtistSerializer.new(artist).to_json)
 
       do_request
 

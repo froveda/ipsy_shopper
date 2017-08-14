@@ -17,8 +17,8 @@ resource 'Songs' do
     example 'Listing songs', document: :v1 do
       explanation 'Retrieve all of the songs'
 
-      unfeatured_song_serialized = JSON.parse(V1::SongSerializer.new(@unfeatured_song).to_json)
-      featured_song_serialized = JSON.parse(V1::SongSerializer.new(@featured_song).to_json)
+      unfeatured_song_serialized = JSON.parse(SongSerializer.new(@unfeatured_song).to_json)
+      featured_song_serialized = JSON.parse(SongSerializer.new(@featured_song).to_json)
       
       do_request
 
@@ -35,7 +35,7 @@ resource 'Songs' do
     
     example 'Retrieve an unfeatured song', document: :v1 do
       explanation 'Retrieve an unfeatured song'
-      unfeatured_song_serialized = JSON.parse(V1::SongSerializer.new(unfeatured_song).to_json)
+      unfeatured_song_serialized = JSON.parse(SongSerializer.new(unfeatured_song).to_json)
       
       do_request(id: unfeatured_song.id)
       
@@ -46,7 +46,7 @@ resource 'Songs' do
 
     example 'Retrieve a featured song', document: :v1 do
       explanation 'Retrieve a featured song'
-      featured_song_serialized = JSON.parse(V1::SongSerializer.new(featured_song).to_json)
+      featured_song_serialized = JSON.parse(SongSerializer.new(featured_song).to_json)
 
       do_request(id: featured_song.id)
       

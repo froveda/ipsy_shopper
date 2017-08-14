@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Artists API</title>
+    <title>Albums API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,13 +106,13 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Artists API</h1>
+      <h1>Albums API</h1>
 
       <div class="article">
-        <h2>Creating an artist</h2>
-        <h3>POST v1/artists</h3>
+        <h2>Updating an album</h2>
+        <h3>PUT v1/albums/:id</h3>
           <p class="explanation">
-            Creates an artist
+            Updates an album with ID <strong>:id</sttong>.
           </p>
 
           <h3>Parameters</h3>
@@ -126,18 +126,26 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">artist[name]</span>
+                    <span class="name">album[name]</span>
                 </td>
                 <td>
-                  <span class="description">Artist name</span>
+                  <span class="description">Album name</span>
                 </td>
               </tr>
               <tr>
-                <td>
-                    <span class="name">artist[bio]</span>
+                <td class="required">
+                    <span class="name">album[art]</span>
                 </td>
                 <td>
-                  <span class="description">Artist biography</span>
+                  <span class="description">Album art</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="required">
+                    <span class="name">album[artist_id]</span>
+                </td>
+                <td>
+                  <span class="description">Artist ID</span>
                 </td>
               </tr>
             </tbody>
@@ -148,34 +156,49 @@ table th, table td {
 
             <h4>Headers</h4>
             <pre class="request headers">Accept: application/json
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1
 Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST v1/artists</pre>
+          <pre class="request route highlight">PUT v1/albums/599215baa54d7549cf117e32</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"name":"Artist 1","bio":"Artist Biography"}</pre>
+            <pre class="request body">------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="album[name]"
+
+Album 1
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="album[art]"; filename="sample.jpg"
+Content-Type: text/plain
+Content-Length: 717
+
+[uploaded data]
+------------XnJLe9ZIbbGUYtzPQJ16u1
+Content-Disposition: form-data; name="album[artist_id]"
+
+599215baa54d7549cf117e33
+------------XnJLe9ZIbbGUYtzPQJ16u1--</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;1d5124cb91e3fe0fd293e6bf2c273550&quot;
+ETag: W/&quot;fcd163439c3ad8c4678581f4b3a35ab9&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: b4c5ec0a-15b4-4d7c-9c06-90788deded91
-X-Runtime: 0.003125
-Content-Length: 88</pre>
+X-Request-Id: d907c00b-4cc5-4836-9254-ad167821b756
+X-Runtime: 0.012768
+Content-Length: 163</pre>
             <h4>Status</h4>
-            <pre class="response status">201 Created</pre>
+            <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;599215baa54d7549cf117e3a&quot;,
-  &quot;name&quot;: &quot;Artist 1&quot;,
-  &quot;bio&quot;: &quot;Artist Biography&quot;,
-  &quot;albums&quot;: [
+  &quot;id&quot;: &quot;599215baa54d7549cf117e32&quot;,
+  &quot;name&quot;: &quot;Album 1&quot;,
+  &quot;art&quot;: &quot;/uploads/album/art/599215baa54d7549cf117e32/sample.jpg&quot;,
+  &quot;artist_id&quot;: &quot;599215baa54d7549cf117e33&quot;,
+  &quot;songs&quot;: [
 
   ]
 }</pre>
