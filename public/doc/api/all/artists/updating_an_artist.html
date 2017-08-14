@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Songs API</title>
+    <title>Artists API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,15 +106,42 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Songs API</h1>
+      <h1>Artists API</h1>
 
       <div class="article">
-        <h2>Deleting a song</h2>
-        <h3>DELETE v1/songs/:id</h3>
+        <h2>Updating an artist</h2>
+        <h3>PUT v1/artists/:id</h3>
           <p class="explanation">
-            Deletes a song
+            Updates an artist with ID <strong>:id</sttong>.
           </p>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">artist[name]</span>
+                </td>
+                <td>
+                  <span class="description">Artist name</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">artist[bio]</span>
+                </td>
+                <td>
+                  <span class="description">Artist biography</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -126,18 +153,32 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE v1/songs/5992044ca54d753382e1ff40</pre>
+          <pre class="request route highlight">PUT v1/artists/5992044ba54d753382e1ff28</pre>
 
 
+            <h4>Body</h4>
+            <pre class="request body">{"name":"Artist 1","bio":"Artist Biography"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Cache-Control: no-cache
-X-Request-Id: e8d603b7-ba43-4bbf-a362-13de1dd133fd
-X-Runtime: 0.004301</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;c801d3902277f1585de13c44abe9f9f7&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: f36f2e2f-4f25-4afe-83a6-cf6bf86432bd
+X-Runtime: 0.005195
+Content-Length: 88</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;id&quot;: &quot;5992044ba54d753382e1ff28&quot;,
+  &quot;name&quot;: &quot;Artist 1&quot;,
+  &quot;bio&quot;: &quot;Artist Biography&quot;,
+  &quot;albums&quot;: [
+
+  ]
+}</pre>
       </div>
     </div>
   </body>

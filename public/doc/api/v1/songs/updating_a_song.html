@@ -193,59 +193,31 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT v1/songs/5991ac85a54d750d7c018c13</pre>
+          <pre class="request route highlight">PUT v1/songs/5992044ca54d753382e1ff3b</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"5991ac85a54d750d7c018c16"}</pre>
+            <pre class="request body">{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"5992044ca54d753382e1ff3d"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;879c25b4b4610d780de13ec94888b2a3&quot;
+ETag: W/&quot;0f26edf100bb9ef7567032ee3fa2deaf&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: eb619109-96c3-4288-b53f-93be467611c5
-X-Runtime: 0.014802
-Content-Length: 568</pre>
+X-Request-Id: 4e57f91c-69c1-4230-8333-ac3efe1de1b2
+X-Runtime: 0.006970
+Content-Length: 133</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;5991ac85a54d750d7c018c13&quot;,
+  &quot;id&quot;: &quot;5992044ca54d753382e1ff3b&quot;,
   &quot;name&quot;: &quot;Song 20&quot;,
   &quot;duration&quot;: 30,
   &quot;genre&quot;: &quot;Pop&quot;,
-  &quot;featured&quot;: false,
-  &quot;album&quot;: {
-    &quot;_id&quot;: {
-      &quot;$oid&quot;: &quot;5991ac85a54d750d7c018c16&quot;
-    },
-    &quot;art&quot;: {
-      &quot;url&quot;: &quot;/uploads/album/art/5991ac85a54d750d7c018c16/sample.jpg&quot;
-    },
-    &quot;artist_id&quot;: {
-      &quot;$oid&quot;: &quot;5991ac85a54d750d7c018c15&quot;
-    },
-    &quot;created_at&quot;: &quot;2017-08-14T13:58:29.745Z&quot;,
-    &quot;name&quot;: &quot;Album7&quot;,
-    &quot;updated_at&quot;: &quot;2017-08-14T13:58:29.745Z&quot;
-  },
-  &quot;playlists&quot;: [
-    {
-      &quot;_id&quot;: {
-        &quot;$oid&quot;: &quot;5991ac85a54d750d7c018c14&quot;
-      },
-      &quot;created_at&quot;: &quot;2017-08-14T13:58:29.736Z&quot;,
-      &quot;name&quot;: &quot;Playlist5&quot;,
-      &quot;song_ids&quot;: [
-        {
-          &quot;$oid&quot;: &quot;5991ac85a54d750d7c018c13&quot;
-        }
-      ],
-      &quot;updated_at&quot;: &quot;2017-08-14T13:58:29.740Z&quot;
-    }
-  ]
+  &quot;album_id&quot;: &quot;5992044ca54d753382e1ff3d&quot;,
+  &quot;featured&quot;: false
 }</pre>
       </div>
     </div>

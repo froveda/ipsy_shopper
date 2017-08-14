@@ -14,13 +14,5 @@ FactoryGirl.define do
       description Faker::Lorem.paragraphs
       here { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'sample.jpg')) }
     end
-
-    transient do
-      songs_count 1
-    end
-    
-    after(:create) do |user|
-      user.playlists = [ create(:playlist) ]
-    end
   end
 end

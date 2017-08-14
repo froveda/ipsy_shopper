@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Songs API</title>
+    <title>Artists API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,13 +106,13 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Songs API</h1>
+      <h1>Artists API</h1>
 
       <div class="article">
-        <h2>Deleting a song</h2>
-        <h3>DELETE v1/songs/:id</h3>
+        <h2>Listing artists</h2>
+        <h3>GET v1/artists</h3>
           <p class="explanation">
-            Deletes a song
+            Retrieve all of the artists
           </p>
 
 
@@ -126,18 +126,47 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE v1/songs/5992044ca54d753382e1ff40</pre>
+          <pre class="request route highlight">GET v1/artists</pre>
 
 
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Cache-Control: no-cache
-X-Request-Id: e8d603b7-ba43-4bbf-a362-13de1dd133fd
-X-Runtime: 0.004301</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8
+ETag: W/&quot;a5df94a4462fe1aeca7ad9d428708096&quot;
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 1840f136-c4ec-400a-bb2c-b86ed37e64ba
+X-Runtime: 0.020785
+Content-Length: 447</pre>
             <h4>Status</h4>
-            <pre class="response status">204 No Content</pre>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">{
+  &quot;artists&quot;: [
+    {
+      &quot;id&quot;: &quot;5992044ba54d753382e1ff23&quot;,
+      &quot;name&quot;: &quot;Artist1&quot;,
+      &quot;bio&quot;: &quot;Sed necessitatibus et eum a praesentium. Excepturi cupiditate sint molestiae vel distinctio illum omnis.&quot;,
+      &quot;albums&quot;: [
+        {
+          &quot;_id&quot;: {
+            &quot;$oid&quot;: &quot;5992044ba54d753382e1ff24&quot;
+          },
+          &quot;art&quot;: {
+            &quot;url&quot;: &quot;/uploads/album/art/5992044ba54d753382e1ff24/sample.jpg&quot;
+          },
+          &quot;artist_id&quot;: {
+            &quot;$oid&quot;: &quot;5992044ba54d753382e1ff23&quot;
+          },
+          &quot;created_at&quot;: &quot;2017-08-14T20:12:59.842Z&quot;,
+          &quot;name&quot;: &quot;Album1&quot;,
+          &quot;updated_at&quot;: &quot;2017-08-14T20:12:59.842Z&quot;
+        }
+      ]
+    }
+  ]
+}</pre>
       </div>
     </div>
   </body>
