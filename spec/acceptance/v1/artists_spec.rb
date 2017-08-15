@@ -9,16 +9,14 @@ resource 'Artists' do
   header 'Content-Type', 'application/json'
   
   get 'v1/artists' do
-    before do
-      song = create(:song)
-      album = song.album
-      @artist = album.artist
-    end
+    let(:song)      { create(:song) }
+    let(:album)     { song.album }
+    let(:artist)    { album.artist }
 
     example 'Listing artists', document: :v1 do
       explanation 'Retrieve all of the artists'
 
-      artist_serialized = JSON.parse(ArtistSerializer.new(@artist).to_json)
+      artist_serialized = JSON.parse(ArtistSerializer.new(artist).to_json)
       
       do_request
 

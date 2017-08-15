@@ -9,16 +9,14 @@ resource 'Songs' do
   header 'Content-Type', 'application/json'
   
   get 'v1/songs' do
-    before do
-      @unfeatured_song = create(:song)
-      @featured_song = create(:featured_song)
-    end
+    let(:unfeatured_song)   { create(:song) }
+    let(:featured_song)     { create(:featured_song) }
 
     example 'Listing songs', document: :v1 do
       explanation 'Retrieve all of the songs'
 
-      unfeatured_song_serialized = JSON.parse(SongSerializer.new(@unfeatured_song).to_json)
-      featured_song_serialized = JSON.parse(SongSerializer.new(@featured_song).to_json)
+      unfeatured_song_serialized = JSON.parse(SongSerializer.new(unfeatured_song).to_json)
+      featured_song_serialized = JSON.parse(SongSerializer.new(featured_song).to_json)
       
       do_request
 
@@ -145,8 +143,8 @@ resource 'Songs' do
   end
   
   delete 'v1/songs/:id' do
-    let(:song) { create(:song) }
-    let(:id)            { song.id.to_s }
+    let(:song)  { create(:song) }
+    let(:id)    { song.id.to_s }
 
     example 'Deleting a song', document: :v1 do
       explanation 'Deletes a song'
