@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   concern :api_base do
     resources :albums
     resources :artists
+    
+    put 'playlists/:id/add_songs', to: 'playlists#add_songs', as: :playlist_add_songs
+    resources :playlists
     resources :songs
   end
 
