@@ -51,7 +51,7 @@ resource 'Albums' do
       parameter :artist_id, 'Artist ID'
     end
     
-    let(:artist)  { create(:artist) }
+    let(:artist) { create(:artist) }
     
     let(:name)        { 'Album 1' }
     let(:art)         { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'sample.jpg')) }
@@ -64,7 +64,7 @@ resource 'Albums' do
 
       album = Album.last
       expect(album.name).to eq('Album 1')
-      expect(album.art.url).not_to  match(/\/uploads\/album\/art\/[a-z0-1]+\/sample\.jpg/)
+      expect(album.art.url).not_to  match(%r{ \/uploads\/album\/art\/[a-z0-1]+\/sample\.jpg })
       expect(album.artist).to eq(artist)
     end
   end
@@ -91,14 +91,14 @@ resource 'Albums' do
 
       album = Album.find(id)
       expect(album.name).to eq('Album 1')
-      expect(album.art.url).not_to  match(/\/uploads\/album\/art\/[a-z0-1]+\/sample\.jpg/)
+      expect(album.art.url).not_to  match(%r{ \/uploads\/album\/art\/[a-z0-1]+\/sample\.jpg })
       expect(album.artist).to eq(artist)
     end
   end
   
   delete 'v1/albums/:id' do
     let(:album) { create(:album) }
-    let(:id)     { album.id.to_s }
+    let(:id)    { album.id.to_s }
 
     example 'Deleting an album', document: :v1 do
       explanation 'Deletes an album'

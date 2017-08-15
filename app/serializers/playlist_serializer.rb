@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Song serializer class
+# Playlist serializer class
 class PlaylistSerializer < BaseSerializer
   attributes :id, :name
   

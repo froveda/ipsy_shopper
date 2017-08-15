@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Album serializer class
 class AlbumSerializer < BaseSerializer
   attributes :id, :name, :art, :artist_id
   

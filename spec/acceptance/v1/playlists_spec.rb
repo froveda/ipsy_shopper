@@ -9,9 +9,9 @@ resource 'Playlists' do
   header 'Content-Type', 'application/json'
   
   get 'v1/playlists' do
-   let(:song_a)      { create(:song, name: 'Song A') }
-   let(:song_b)      { create(:song, name: 'Song B') }
-   let(:playlist)    { create(:playlist, songs: [song_a, song_b]) }
+    let(:song_a)     { create(:song, name: 'Song A') }
+    let(:song_b)     { create(:song, name: 'Song B') }
+    let(:playlist)   { create(:playlist, songs: [song_a, song_b]) }
 
     example 'Listing playlists', document: :v1 do
       explanation 'Retrieve all of the playlists'
@@ -58,7 +58,7 @@ resource 'Playlists' do
     
     let(:playlist_params) do
       {
-        name: 'Playlist 1' ,
+        name: 'Playlist 1',
         song_ids: [ song_a.id.to_s, song_b.id.to_s ]
       }
     end
@@ -92,7 +92,7 @@ resource 'Playlists' do
 
     let(:playlist_params) do
       {
-        name: 'Playlist 1' ,
+        name: 'Playlist 1',
         song_ids: [ song_a.id.to_s, song_b.id.to_s ]
       }
     end
@@ -106,7 +106,7 @@ resource 'Playlists' do
 
       playlist = Playlist.find(id)
       expect(playlist.name).to eq('Playlist 1')
-      expect(playlist.songs).to  eq([ song_a, song_b ])
+      expect(playlist.songs).to eq([ song_a, song_b ])
     end
   end
 
@@ -119,8 +119,8 @@ resource 'Playlists' do
     let(:song_b)      { create(:song, name: 'Song B') }
     let(:song_c)      { create(:song, name: 'Song C') }
     
-    let(:playlist)      { create(:playlist, songs: [song_a]) }
-    let(:id)   { playlist.id.to_s }
+    let(:playlist)    { create(:playlist, songs: [song_a]) }
+    let(:id)          { playlist.id.to_s }
   
     let(:playlist_params) do
       {
@@ -136,13 +136,13 @@ resource 'Playlists' do
       do_request
     
       playlist = Playlist.find(id)
-      expect(playlist.songs).to  eq([ song_a, song_b, song_c ])
+      expect(playlist.songs).to eq([ song_a, song_b, song_c ])
     end
   end
 
   delete 'v1/playlists/:id' do
-    let(:playlist) { create(:playlist) }
-    let(:id)     { playlist.id.to_s }
+    let(:playlist)  { create(:playlist) }
+    let(:id)        { playlist.id.to_s }
 
     example 'Deleting a playlist', document: :v1 do
       explanation 'Deletes a playlist'

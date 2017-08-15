@@ -6,17 +6,15 @@ module V1
     before_action :set_resource, only: %i[show update destroy add_songs]
     
     def add_songs
-      begin
-        @resource.songs << playlist_songs_params[:song_ids].collect{|song_id| Song.find(song_id)}
-        
-        if @resource.save
-          render json: @resource
-        else
-          render json: @resource.errors, status: :unprocessable_entity
-        end
-      rescue Mongoid::Errors::DocumentNotFound => e
-        render json: e.json, status: :not_found
+      @resource.songs << playlist_songs_params[:song_ids].collect { |song_id| Song.find(song_id) }
+      
+      if @resource.save
+        render json: @resource
+      else
+        render json: @resource.errors, status: :unprocessable_entity
       end
+    rescue Mongoid::Errors::DocumentNotFound => e
+      render json: e.json, status: :not_found
     end
     
     private
