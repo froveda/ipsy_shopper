@@ -57,8 +57,10 @@ resource 'Playlists' do
     
     let(:playlist_params) do
       {
-        name: 'Playlist 1',
-        song_ids: [ song_a.id.to_s, song_b.id.to_s ]
+        playlist: {
+          name: 'Playlist 1',
+          song_ids: [ song_a.id.to_s, song_b.id.to_s ]
+        }
       }
     end
 
@@ -91,8 +93,10 @@ resource 'Playlists' do
 
     let(:playlist_params) do
       {
-        name: 'Playlist 1',
-        song_ids: [ song_a.id.to_s, song_b.id.to_s ]
+        playlist: {
+          name: 'Playlist 1',
+          song_ids: [ song_a.id.to_s, song_b.id.to_s ]
+        }
       }
     end
 
@@ -123,7 +127,9 @@ resource 'Playlists' do
   
     let(:playlist_params) do
       {
-        song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        playlist: {
+          song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        }
       }
     end
   
@@ -168,7 +174,9 @@ resource 'Playlists' do
   
     let(:playlist_params) do
       {
-        song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        playlist: {
+          song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        }
       }
     end
 
