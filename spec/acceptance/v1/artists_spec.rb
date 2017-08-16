@@ -52,8 +52,10 @@ resource 'Artists' do
     
     let(:artist_params) do
       {
-        name: 'Artist 1',
-        bio: 'Artist Biography'
+        artist: {
+          name: 'Artist 1',
+          bio: 'Artist Biography'
+        }
       }
     end
 
@@ -81,10 +83,13 @@ resource 'Artists' do
     
     let(:artist)          { create(:artist) }
     let(:id)              { artist.id.to_s }
+
     let(:artist_params) do
       {
-        name: 'Artist 1',
-        bio: 'Artist Biography'
+        artist: {
+          name: 'Artist 1',
+          bio: 'Artist Biography'
+        }
       }
     end
 
