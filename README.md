@@ -66,4 +66,10 @@ Associations:
 
 To access the api documentation, go to `http://<HOST>/doc/api/v<VERSION>/index.html`. Example:
 
-[http://localhost:3000/doc/api/v1/index.html](http://localhost:3000/doc/api/v1/index.html)
+[https://ipsy-shopper-api.herokuapp.com/doc/api/v1/index.html](https://ipsy-shopper-api.herokuapp.com/doc/api/v1/index.html)
+
+## Application Server:
+
+The API is served using heroku. Check:
+
+[https://ipsy-shopper-api.herokuapp.com](https://ipsy-shopper-api.herokuapp.com)
