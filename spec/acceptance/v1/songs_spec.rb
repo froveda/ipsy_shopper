@@ -67,7 +67,7 @@ resource 'Songs' do
       parameter :description, 'Description of a featured song'
     end
 
-    let(:album)         { create(:album) }
+    let(:album) { create(:album) }
     let(:song_params) do
       {
         song: {
