@@ -45,7 +45,7 @@ RspecApiDocumentation.configure do |config|
   config.docs_dir = Rails.root.join('public', 'doc', 'api', 'all')
   
   API_VERSIONS.each do |version|
-    config.define_group :v1 do |group_config|
+    config.define_group(version) do |group_config|
       group_config.filter = version
       group_config.docs_dir = Rails.root.join('public', 'doc', 'api', version.to_s)
       group_config.api_name = "API #{version.upcase}"

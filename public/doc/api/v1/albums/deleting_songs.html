@@ -145,36 +145,36 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">DELETE v1/albums/5994bd18a54d753a4604fe17/delete_songs</pre>
+          <pre class="request route highlight">DELETE v1/albums/5994c60aa54d753f44bec42e/delete_songs</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"album":{"song_ids":["5994bd18a54d753a4604fe19","5994bd18a54d753a4604fe1a"]}}</pre>
+            <pre class="request body">{"album":{"song_ids":["5994c60aa54d753f44bec430","5994c60aa54d753f44bec431"]}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;8c30756e20f438bc43d747e1df88ed31&quot;
+ETag: W/&quot;78cc4ec5c013e16e00fec70e0548be23&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 4e0315de-7482-4c35-9540-fda503b19666
-X-Runtime: 0.009305
-Content-Length: 301</pre>
+X-Request-Id: 2ce49c5c-b0ce-4de7-ac3d-5ebc9f0fdcb6
+X-Runtime: 0.013903
+Content-Length: 302</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;5994bd18a54d753a4604fe17&quot;,
+  &quot;id&quot;: &quot;5994c60aa54d753f44bec42e&quot;,
   &quot;name&quot;: &quot;Album8&quot;,
-  &quot;art&quot;: &quot;/uploads/album/art/5994bd18a54d753a4604fe17/sample.jpg&quot;,
-  &quot;artist_id&quot;: &quot;5994bd18a54d753a4604fe16&quot;,
+  &quot;art&quot;: &quot;/uploads/album/art/5994c60aa54d753f44bec42e/sample.jpg&quot;,
+  &quot;artist_id&quot;: &quot;5994c60aa54d753f44bec42d&quot;,
   &quot;songs&quot;: [
     {
-      &quot;id&quot;: &quot;5994bd18a54d753a4604fe18&quot;,
+      &quot;id&quot;: &quot;5994c60aa54d753f44bec42f&quot;,
       &quot;name&quot;: &quot;Song A&quot;,
-      &quot;duration&quot;: 7457053389,
-      &quot;genre&quot;: &quot;ad&quot;,
-      &quot;album_id&quot;: &quot;5994bd18a54d753a4604fe17&quot;,
+      &quot;duration&quot;: 7921416039,
+      &quot;genre&quot;: &quot;non&quot;,
+      &quot;album_id&quot;: &quot;5994c60aa54d753f44bec42e&quot;,
       &quot;featured&quot;: false
     }
   ]
