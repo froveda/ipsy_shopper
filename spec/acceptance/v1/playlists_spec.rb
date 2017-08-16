@@ -5,8 +5,7 @@ require 'rspec_api_documentation'
 require 'rspec_api_documentation/dsl'
 
 resource 'Playlists' do
-  header 'Accept', 'application/json'
-  header 'Content-Type', 'application/json'
+  include_context :json_headers
   
   get 'v1/playlists' do
     let(:song_a)     { create(:song, name: 'Song A') }
@@ -100,7 +99,7 @@ resource 'Playlists' do
     let(:raw_post) { playlist_params.to_json }
     
     example 'Updating a playlist', document: :v1 do
-      explanation 'Updates a playlist with ID <strong>:id</sttong>.'
+      explanation 'Updates a playlist with ID <strong>:id</strong>.'
 
       do_request
 
@@ -111,7 +110,7 @@ resource 'Playlists' do
   end
 
   put 'v1/playlists/:id/add_songs' do
-    with_options scope: :playlist do
+    with_options scope: :playlist, required: true do
       parameter :song_ids, 'Array of song IDs'
     end
   
@@ -131,12 +130,13 @@ resource 'Playlists' do
     let(:raw_post) { playlist_params.to_json }
   
     example 'Adding songs', document: :v1 do
-      explanation 'Adds songs to a playlist with ID <strong>:id</sttong>.'
+      explanation 'Adds songs to a playlist with ID <strong>:id</strong>.'
     
       do_request
     
       playlist = Playlist.find(id)
       expect(playlist.songs).to eq([ song_a, song_b, song_c ])
+      expect(status).to eq(200)
     end
   end
 
@@ -152,5 +152,44 @@ resource 'Playlists' do
       expect(Playlist.count).to eq(0)
       expect(status).to eq(204)
     end
+  end
+  
+  delete 'v1/playlists/:id/delete_songs' do
+    with_options scope: :playlist, required: true do
+      parameter :song_ids, 'Array of song IDs'
+    end
+    
+    let!(:song_a)      { create(:song, name: 'Song A') }
+    let!(:song_b)      { create(:song, name: 'Song B') }
+    let!(:song_c)      { create(:song, name: 'Song C') }
+  
+    let(:playlist)    { create(:playlist, songs: [song_a, song_b, song_c]) }
+    let(:id)          { playlist.id.to_s }
+  
+    let(:playlist_params) do
+      {
+        song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+      }
+    end
+
+    let(:raw_post) { playlist_params.to_json }
+
+    example 'Deleting songs', document: :v1 do
+      explanation 'Deletes songs from a playlist with ID <strong>:id</strong>. It won\'t destroy the songs, just delete them from the playlist. The songs will be still available in the system'
+  
+      do_request
+
+      playlist.reload
+      expect(playlist.songs).to eq([ song_a ])
+      
+      song = Song.find(song_b.id)
+      expect(song).to be
+
+      song = Song.find(song_c.id)
+      expect(song).to be
+      
+      expect(status).to eq(200)
+    end
+    
   end
 end

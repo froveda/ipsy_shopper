@@ -5,13 +5,13 @@ module V1
   class PlaylistsController < ApplicationController
     include BasicApiActions
     include RelatedSongsActions
-
+    
     private
     
     def resource_params
       params.require(:playlist).permit(:name, song_ids: [])
     end
-    
+
     def songs_params
       params.require(:playlist).permit(song_ids: [])
     end

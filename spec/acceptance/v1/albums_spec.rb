@@ -5,8 +5,7 @@ require 'rspec_api_documentation'
 require 'rspec_api_documentation/dsl'
 
 resource 'Albums' do
-  header 'Accept', 'application/json'
-  header 'Content-Type', 'application/json'
+  include_context :json_headers
   
   get 'v1/albums' do
     let(:song)    { create(:song) }
@@ -83,7 +82,7 @@ resource 'Albums' do
     let(:artist_id)   { artist.id }
     
     example 'Updating an album', document: :v1 do
-      explanation 'Updates an album with ID <strong>:id</sttong>.'
+      explanation 'Updates an album with ID <strong>:id</strong>.'
 
       do_request
 
@@ -91,6 +90,38 @@ resource 'Albums' do
       expect(album.name).to eq('Album 1')
       expect(album.art.url).not_to  match(%r{ \/uploads\/album\/art\/[a-z0-1]+\/sample\.jpg })
       expect(album.artist).to eq(artist)
+    end
+  end
+
+  put 'v1/albums/:id/add_songs' do
+    with_options scope: :album, required: true do
+      parameter :song_ids, 'Array of song IDs'
+    end
+
+    let!(:album)        { create(:album) }
+    let!(:song_a)       { create(:song, name: 'Song A', album_id: album.id) }
+    let(:song_b)        { create(:song, name: 'Song B') }
+    let(:song_c)        { create(:song, name: 'Song C') }
+    let(:id)            { album.id.to_s }
+
+    let(:album_params) do
+      {
+        album: {
+          song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        }
+      }
+    end
+
+    let(:raw_post) { album_params.to_json }
+
+    example 'Adding songs', document: :v1 do
+      explanation 'Adds songs to an album with ID <strong>:id</strong>.'
+
+      do_request
+
+      album.reload
+      expect(album.songs).to eq([ song_a, song_b, song_c ])
+      expect(status).to eq(200)
     end
   end
   
@@ -105,6 +136,41 @@ resource 'Albums' do
 
       expect(Album.count).to eq(0)
       expect(status).to eq(204)
+    end
+  end
+
+  delete 'v1/albums/:id/delete_songs' do
+    with_options scope: :album, required: true do
+      parameter :song_ids, 'Array of song IDs'
+    end
+    
+    let!(:album)          { create(:album) }
+    let!(:song_a)         { create(:song, name: 'Song A', album_id: album.id) }
+    let!(:song_b)         { create(:song, name: 'Song B', album_id: album.id) }
+    let!(:song_c)         { create(:song, name: 'Song C', album_id: album.id) }
+    let(:id)              { album.id.to_s }
+
+    let(:album_params) do
+      {
+        album: {
+          song_ids: [ song_b.id.to_s, song_c.id.to_s ]
+        }
+      }
+    end
+  
+    let(:raw_post) { album_params.to_json }
+  
+    example 'Deleting songs', document: :v1 do
+      explanation 'Deletes songs from a album with ID <strong>:id</strong>. It will destroy the songs too.'
+    
+      do_request
+    
+      album.reload
+      expect(album.songs).to eq([ song_a ])
+      
+      expect { Song.find(song_b.id) }.to raise_error(Mongoid::Errors::DocumentNotFound)
+      expect { Song.find(song_c.id) }.to raise_error(Mongoid::Errors::DocumentNotFound)
+      expect(status).to eq(200)
     end
   end
 end

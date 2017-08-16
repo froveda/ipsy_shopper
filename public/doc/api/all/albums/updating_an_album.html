@@ -112,7 +112,7 @@ table th, table td {
         <h2>Updating an album</h2>
         <h3>PUT v1/albums/:id</h3>
           <p class="explanation">
-            Updates an album with ID <strong>:id</sttong>.
+            Updates an album with ID <strong>:id</strong>.
           </p>
 
           <h3>Parameters</h3>
@@ -161,7 +161,7 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT v1/albums/59924431a54d755620e3ce58</pre>
+          <pre class="request route highlight">PUT v1/albums/59947857a54d7527524450a0</pre>
 
 
             <h4>Body</h4>
@@ -178,26 +178,26 @@ Content-Length: 717
 ------------XnJLe9ZIbbGUYtzPQJ16u1
 Content-Disposition: form-data; name="album[artist_id]"
 
-59924431a54d755620e3ce59
+59947857a54d7527524450a1
 ------------XnJLe9ZIbbGUYtzPQJ16u1--</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;4c05ba3dec52dd3c891d6f1979c1a4ce&quot;
+ETag: W/&quot;6ee20aa889a2ecb72fbd50d9326cf0a1&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 98b6fea9-b6c9-4a6c-8e7b-a113e8385a96
-X-Runtime: 0.012168
+X-Request-Id: 4f3c64b9-413e-4730-a0dd-0f1217cf505b
+X-Runtime: 0.013048
 Content-Length: 163</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;59924431a54d755620e3ce58&quot;,
+  &quot;id&quot;: &quot;59947857a54d7527524450a0&quot;,
   &quot;name&quot;: &quot;Album 1&quot;,
-  &quot;art&quot;: &quot;/uploads/album/art/59924431a54d755620e3ce58/sample.jpg&quot;,
-  &quot;artist_id&quot;: &quot;59924431a54d755620e3ce59&quot;,
+  &quot;art&quot;: &quot;/uploads/album/art/59947857a54d7527524450a0/sample.jpg&quot;,
+  &quot;artist_id&quot;: &quot;59947857a54d7527524450a1&quot;,
   &quot;songs&quot;: [
 
   ]

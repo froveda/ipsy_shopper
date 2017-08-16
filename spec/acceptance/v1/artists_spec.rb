@@ -5,8 +5,7 @@ require 'rspec_api_documentation'
 require 'rspec_api_documentation/dsl'
 
 resource 'Artists' do
-  header 'Accept', 'application/json'
-  header 'Content-Type', 'application/json'
+  include_context :json_headers
   
   get 'v1/artists' do
     let(:song)      { create(:song) }
@@ -92,7 +91,7 @@ resource 'Artists' do
     let(:raw_post) { artist_params.to_json }
 
     example 'Updating an artist', document: :v1 do
-      explanation 'Updates an artist with ID <strong>:id</sttong>.'
+      explanation 'Updates an artist with ID <strong>:id</strong>.'
 
       do_request
 

@@ -112,7 +112,7 @@ table th, table td {
         <h2>Updating a song</h2>
         <h3>PUT v1/songs/:id</h3>
           <p class="explanation">
-            Updates a song with ID <strong>:id</sttong>.
+            Updates a song with ID <strong>:id</strong>.
           </p>
 
           <h3>Parameters</h3>
@@ -193,30 +193,30 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT v1/songs/59924431a54d755620e3ce9b</pre>
+          <pre class="request route highlight">PUT v1/songs/59947857a54d7527524450fb</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"59924431a54d755620e3ce9d"}</pre>
+            <pre class="request body">{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"59947857a54d7527524450fd"}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;baec44338dd87da10c6c59c883480856&quot;
+ETag: W/&quot;47d219a6264648d28b9c94b15ec0a642&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: c1b4065a-f934-40df-9805-1de4d613f453
-X-Runtime: 0.006895
+X-Request-Id: e42de67a-6536-4831-bc82-b0473969aa44
+X-Runtime: 0.008928
 Content-Length: 133</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;59924431a54d755620e3ce9b&quot;,
+  &quot;id&quot;: &quot;59947857a54d7527524450fb&quot;,
   &quot;name&quot;: &quot;Song 20&quot;,
   &quot;duration&quot;: 30,
   &quot;genre&quot;: &quot;Pop&quot;,
-  &quot;album_id&quot;: &quot;59924431a54d755620e3ce9d&quot;,
+  &quot;album_id&quot;: &quot;59947857a54d7527524450fd&quot;,
   &quot;featured&quot;: false
 }</pre>
       </div>

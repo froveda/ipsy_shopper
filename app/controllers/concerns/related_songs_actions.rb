@@ -17,6 +17,14 @@ module RelatedSongsActions
   rescue Mongoid::Errors::DocumentNotFound => e
     render json: e.json, status: :not_found
   end
+
+  def delete_songs
+    if resource.remove_songs(songs_params[:song_ids])
+      render json: resource
+    else
+      render json: resource.errors, status: :unprocessable_entity
+    end
+  end
   
   private
   

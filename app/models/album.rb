@@ -12,4 +12,8 @@ class Album
   belongs_to :artist
 
   validates_presence_of :name, :art
+
+  def remove_songs(song_ids_to_remove)
+    songs.where(:id.in => song_ids_to_remove).destroy_all
+  end
 end
