@@ -64,6 +64,6 @@ Associations:
 
 ## API
 
-To access the api documentation, go to `http://<VERSION>/doc/api/v<VERSION>/index.html`. Example:
+To access the api documentation, go to `http://<HOST>/doc/api/v<VERSION>/index.html`. Example:
 
 [http://localhost:3000/doc/api/v1/index.html](http://localhost:3000/doc/api/v1/index.html)
