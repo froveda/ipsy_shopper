@@ -193,30 +193,30 @@ Host: example.org
 Cookie: </pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT v1/songs/5994bc7fa54d7539ceff3867</pre>
+          <pre class="request route highlight">PUT v1/songs/5994bd18a54d753a4604fe64</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"5994bc7fa54d7539ceff3869"}</pre>
+            <pre class="request body">{"song":{"name":"Song 20","duration":30,"genre":"Pop","featured":false,"album_id":"5994bd18a54d753a4604fe66"}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-ETag: W/&quot;46a7bf3d24dcb68648124220dae5f74a&quot;
+ETag: W/&quot;654fd9e9c47f075e92c7fb932e1f5a1c&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 50ad89d6-2b07-441e-ad47-1fd4b528bc25
-X-Runtime: 0.010417
+X-Request-Id: 5bc80352-5cac-469c-b712-55018d76c795
+X-Runtime: 0.009796
 Content-Length: 133</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: &quot;5994bc7fa54d7539ceff3867&quot;,
+  &quot;id&quot;: &quot;5994bd18a54d753a4604fe64&quot;,
   &quot;name&quot;: &quot;Song 20&quot;,
   &quot;duration&quot;: 30,
   &quot;genre&quot;: &quot;Pop&quot;,
-  &quot;album_id&quot;: &quot;5994bc7fa54d7539ceff3869&quot;,
+  &quot;album_id&quot;: &quot;5994bd18a54d753a4604fe66&quot;,
   &quot;featured&quot;: false
 }</pre>
       </div>

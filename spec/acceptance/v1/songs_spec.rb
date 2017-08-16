@@ -68,15 +68,17 @@ resource 'Songs' do
     end
 
     let(:album)         { create(:album) }
-    let(:song_params)   {
-                          {
-                            name: 'Song 1',
-                            duration: 500,
-                            genre: 'Rock',
-                            featured:  false,
-                            album_id: album.id.to_s
-                          }
-                        }
+    let(:song_params) do
+      {
+        song: {
+          name: 'Song 1',
+          duration: 500,
+          genre: 'Rock',
+          featured:  false,
+          album_id: album.id.to_s
+        }
+      }
+    end
 
     let(:raw_post) { song_params.to_json }
   
@@ -112,15 +114,17 @@ resource 'Songs' do
     let(:album)         { create(:album) }
     let(:song)          { create(:song) }
     let(:id)            { song.id.to_s }
-    let(:song_params)   {
-                          {
-                            name: 'Song 20',
-                            duration: 30,
-                            genre: 'Pop',
-                            featured:  false,
-                            album_id: album.id.to_s
-                          }
-                        }
+    let(:song_params) do
+      {
+        song: {
+          name: 'Song 20',
+          duration: 30,
+          genre: 'Pop',
+          featured:  false,
+          album_id: album.id.to_s
+        }
+      }
+    end
   
     let(:raw_post) { song_params.to_json }
   
